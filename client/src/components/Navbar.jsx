@@ -19,7 +19,7 @@ export default class Navbar extends Component {
       return <div key={x.username} className="team-ico-small" style={{ 'backgroundImage': `url(${x.picture})` }} alt={x.firstname} />
     })
     const links = routes.map(x => {
-      return x.subRoutes ? <ul>{x.subRoutes.map(x => <li key={x.label}><Link to={x.path}>{x.label}</Link></li>)}</ul> : <li key={x.path}><Link to={x.path}>{x.label}</Link></li>
+      return x.subRoutes ? <ul key={x.path}>{x.subRoutes.map(x => <li key={x.label}><Link to={x.path}>{x.label}</Link></li>)}</ul> : <li key={x.path}><Link to={x.path}>{x.label}</Link></li>
     })
     return (
       <div className="navbar" >

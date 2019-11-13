@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.post('/create', (req, res) => {
   const { title, description, user } = req.body
   // console.log(title, description, user)
-  Task.create({ title, description }).then(data => {
+  Task.create({ title, description, position: [0, 0], createdBy: user }).then(data => {
     res.json(data)
     console.log(data)
   }).catch(err => console.log(err))
@@ -20,6 +20,11 @@ app.post('/create', (req, res) => {
 
 app.post('/edit/:taskId', (req, res) => {
   //
+  const id = req.params.taskId
+  const { position } = req.body
+  Task.findOneAndUpdate({ _id: id }, { position }, { new: true }).then(data => {
+    return res.json(data)
+  }).catch(err => res.json(err))
 });
 
 app.get('/delete/:taskId', (req, res) => {

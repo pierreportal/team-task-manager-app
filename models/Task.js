@@ -5,6 +5,7 @@ const taskSchema = new Schema({
   title: String,
   description: String,
   createdAt: Date,
+  position: [Number],
   createdBy: { type: Schema.Types.ObjectId, ref: 'User' }
 })
 

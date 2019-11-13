@@ -40,7 +40,11 @@ export default class TaskMap extends Component {
 
   render() {
     let tasks = this.state.tasks && this.state.tasks.map((x) => {
-      return <Task key={x._id} task={x} updateTasks={this.updateTasks} />
+      return (
+
+        <Task key={x._id} task={x} updateTasks={this.updateTasks} />
+
+      )
     })
 
 
