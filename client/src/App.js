@@ -18,7 +18,7 @@ export default class App extends Component {
     console.log(this.state.user)
     return (
       <div className="App">
-        <Navbar />
+        <Navbar user={this.state.user} />
         <Routing /*updateHeader={() => this.updateHeader}*/ user={this.state.user} />
       </div>
     )

@@ -4,6 +4,13 @@ body{
   background-color: #09d3ac;
 }
 
+a {
+  color: #09d3ac;
+  text-decoration: none;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
 .App {
   text-align: center;
   height: 100vh;
@@ -194,7 +201,7 @@ body{
 .task-body-done{
   padding: 10px;
   background-color: lightgreen;
-  color: white;
+  color: green;
   border-radius: 0 0 10px 10px;
   width: 400px;
   height: auto;
