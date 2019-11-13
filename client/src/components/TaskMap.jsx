@@ -42,7 +42,7 @@ export default class TaskMap extends Component {
     let tasks = this.state.tasks && this.state.tasks.map((x) => {
       return (
 
-        <Task key={x._id} task={x} updateTasks={this.updateTasks} />
+        <Task key={x._id} task={x} updateTasks={this.updateTasks} user={this.state.user} />
 
       )
     })
@@ -52,8 +52,8 @@ export default class TaskMap extends Component {
     return (
       < div className="map" >
         {this.state.showAddTaskForm && <AddTaskForm addTask={this.addTask} />}
-        {this.state.user && <div className="map-face-icon" style={{ 'backgroundImage': `url(${this.state.user.picture})` }}></div>}
-        <button className="add-task-btn" onClick={this.handleAddTask}></button>
+        {/* {this.state.user && <div className="map-face-icon" style={{ 'backgroundImage': `url(${this.state.user.picture})` }}></div>} */}
+        {this.state.user && <button className="add-task-btn" onClick={this.handleAddTask}></button>}
         {tasks}
       </div >
     )

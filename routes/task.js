@@ -4,7 +4,7 @@ const app = express()
 const Task = require("../models/Task")
 
 app.get('/', (req, res) => {
-  Task.find({}).then(data => {
+  Task.find({}).populate('createdBy').then(data => {
     res.json(data)
   }).catch(err => res.json(err))
 })
@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.post('/create', (req, res) => {
   const { title, description, user } = req.body
   // console.log(title, description, user)
-  Task.create({ title, description, position: [0, 0], createdBy: user }).then(data => {
+  Task.create({ title, description, position: [0, 0], createdBy: user, done: false }).then(data => {
     res.json(data)
     console.log(data)
   }).catch(err => console.log(err))
